@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Navigation = () => {
+export const Navigation = () => {
   return <div>Navigation</div>;
 };
-
-export default Navigation;
