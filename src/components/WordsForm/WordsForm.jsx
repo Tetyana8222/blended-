@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
 import { nanoid } from 'nanoid';
+import { Form, Wrap, TextField, AddWordBtn } from './WordsForm.Styled';
 
 export class WordsForm extends Component {
   state = {
@@ -27,27 +28,31 @@ export class WordsForm extends Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.onSubmitForm} action="">
-          <TextField
-            onChange={this.handleChange}
-            value={this.state.uaWord}
-            name="uaWord"
-            id="standard-basic"
-            label="Ukrainian"
-            variant="standard"
-          />
-          <TextField
-            onChange={this.handleChange}
-            value={this.state.enWord}
-            name="enWord"
-            id="standard-basic"
-            label="English"
-            variant="standard"
-          />
-          <button className="submit">ADD WORD</button>
-        </form>
-      </div>
+      <Wrap>
+        <Form onSubmit={this.onSubmitForm} action="">
+          <Wrap>
+            <TextField
+              onChange={this.handleChange}
+              value={this.state.uaWord}
+              name="uaWord"
+              id="standard-basic"
+              label="Ukrainian"
+              variant="standard"
+              placeholder="Ukrainian"
+            />
+            <TextField
+              onChange={this.handleChange}
+              value={this.state.enWord}
+              name="enWord"
+              id="standard-basic"
+              label="English"
+              variant="standard"
+              placeholder="Engish"
+            />
+          </Wrap>
+          <AddWordBtn className="submit">ADD WORD</AddWordBtn>
+        </Form>
+      </Wrap>
     );
   }
 }

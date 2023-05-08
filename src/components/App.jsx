@@ -8,7 +8,7 @@ export class App extends Component {
   state = {
     words: [
       { id: 1, ukWord: 'Зима', enWord: 'Winter', isChecked: 'false' },
-      { id: 2, ukWord: 'Весна', enWord: 'spring', isChecked: 'false' },
+      { id: 2, ukWord: 'Весна', enWord: 'Spring', isChecked: 'false' },
       { id: 3, ukWord: 'Літо', enWord: 'Summer', isChecked: 'false' },
       { id: 4, ukWord: 'Осінь', enWord: 'Autumn', isChecked: 'false' },
     ],
