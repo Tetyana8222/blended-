@@ -7,10 +7,10 @@ import { Filter } from './Filter/FIlter';
 export class App extends Component {
   state = {
     words: [
-      { id: 1, ukWord: 'Зима', enWord: 'Winter', isChecked: 'false' },
-      { id: 2, ukWord: 'Весна', enWord: 'Spring', isChecked: 'false' },
-      { id: 3, ukWord: 'Літо', enWord: 'Summer', isChecked: 'false' },
-      { id: 4, ukWord: 'Осінь', enWord: 'Autumn', isChecked: 'false' },
+      { id: 1, ukWord: 'Зима', enWord: 'Winter', isChecked: false },
+      { id: 2, ukWord: 'Весна', enWord: 'Spring', isChecked: false },
+      { id: 3, ukWord: 'Літо', enWord: 'Summer', isChecked: false },
+      { id: 4, ukWord: 'Осінь', enWord: 'Autumn', isChecked: false },
     ],
     filter: '',
   };
@@ -22,6 +22,7 @@ export class App extends Component {
       };
     });
   };
+
   deleteWord = id => {
     this.setState(prevState => {
       return {
@@ -34,15 +35,16 @@ export class App extends Component {
       filter: event.target.value,
     });
   };
+
   handleFilterWords = () => {
-    return this.state.words.filter(
+    const { words, filter } = this.state;
+    if (!filter) {
+      return words; // Повертаємо всі слова без фільтрації, якщо filter не задано
+    }
+    return words.filter(
       word =>
-        word.ukWord
-          .toLowerCase()
-          .includes(this.state.filter.toLowerCase().trim()) ||
-        word.enWord
-          .toLowerCase()
-          .includes(this.state.filter.toLowerCase().trim())
+        word.ukWord.toLowerCase().includes(filter.toLowerCase().trim()) ||
+        word.enWord.toLowerCase().includes(filter.toLowerCase().trim())
     );
   };
 
